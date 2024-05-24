@@ -13,4 +13,8 @@ TEST_CASE("Base64 Encoding Tests", "[base64_encoding_tests]") {
    std::string expected = "aGVsbG8=";
 
    REQUIRE( std::string_view(reinterpret_cast<const char*>(encoded.data()), encoded.size()) == expected );
+
+   auto decoded = base64::decode(encoded);
+
+   std::cout << "Decoded: " << decoded << '\n';
 }
